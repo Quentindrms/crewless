@@ -6,7 +6,7 @@ import vikeSolid from "vike-solid/config";
 
 export default {
   // https://vike.dev/head-tags
-  title: "My Vike App",
+  title: "Crewless",
   description: "Demo showcasing Vike",
 
   extends: [vikeSolid],
