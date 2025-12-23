@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import "tailwindcss";
 
-@theme{
+@theme {
+
+  /** Couleurs **/
   --color-primary-light: oklch(62.3% 0.214 259.815);
   --color-primary-dark: oklch(54.6% 0.245 262.881);
-  --color-secondary : oklch(75% 0.183 55.934);
+  --color-secondary: oklch(75% 0.183 55.934);
   --color-secondary-dark: oklch(70.5% 0.213 47.604);
   --color-accent-light: oklch(60.6% 0.25 292.717);
   --color-accent-dark: oklch(54.1% 0.281 293.009);
@@ -13,12 +15,22 @@
   --color-light: oklch(98.5% 0 0);
   --color-dark: oklch(27.4% 0.006 286.033);
   --color-background-light: oklch(98.4% 0.003 247.858);
-  --color-background-dark: oklch(20.8% 0.042 265.755); 
+  --color-background-dark: oklch(20.8% 0.042 265.755);
 
-  --font-title: "Archivo", sans-serif; 
-  --font-main: "Roboto Mono", sans-serif
+  /** Polices d'écriture **/
+  --font-title: "Archivo", sans-serif;
+  --font-main: "Roboto Mono", sans-serif;
+
+  /** Espaces **/ 
+   --spacing-extrasmall: 10rem;
+
+   /** Tailles de texte **/
+  --text-extralarge: 5rem;
+  --text-large : 4rem;
+  --text-medium: 2.5rem;
+  --text-small: 1.75rem;
 }
 
-#root{
+#root {
   background-color: var(--color-background-dark);
 }
