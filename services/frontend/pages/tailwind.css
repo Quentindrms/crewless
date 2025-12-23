@@ -9,11 +9,15 @@
   --color-accent-dark: oklch(54.1% 0.281 293.009);
   --color-title-light: oklch(96.7% 0.003 264.542);
   --color-title-dark: oklch(27.8% 0.033 256.848);
-  --color-text-light: oklch(98.5% 0 0);
-  --color-text-dark: oklch(27.4% 0.006 286.033);
+  --color-light: oklch(98.5% 0 0);
+  --color-dark: oklch(27.4% 0.006 286.033);
   --color-background-light: oklch(98.4% 0.003 247.858);
   --color-background-dark: oklch(20.8% 0.042 265.755); 
 
   --font-title: "Archivo", sans-serif; 
   --font-main: "Roboto Mono", sans-serif
+}
+
+#root{
+  background-color: var(--color-background-dark);
 }
