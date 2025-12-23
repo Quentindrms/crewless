@@ -6,10 +6,10 @@ type HeadingLevel = 1|2|3|4|5|6;
 type BoldValue = "light" | "regular" | "bold" | "extra-bold";
 
 interface HeadingProps extends JSX.HTMLAttributes<HTMLHeadingElement>{
-    component: `h${HeadingLevel}`
+    component?: `h${HeadingLevel}`
     children: JSX.Element
-    level: HeadingLevel,
-    bold: BoldValue,
+    level?: HeadingLevel,
+    bold?: BoldValue,
 }
 
 const globalClasses = "font-title text-light"
@@ -34,7 +34,7 @@ function getLevelClasses(props: HeadingLevel|undefined){
     return levelClasses[props ?? 1]
 }
 
-function getBoldClasses(props: BoldValue){
+function getBoldClasses(props: BoldValue|undefined){
     return boldClasses[props ?? "regular"]; 
 }
 
