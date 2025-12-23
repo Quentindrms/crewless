@@ -4,13 +4,13 @@ import { splitProps, type JSX } from "solid-js";
 type ButtonType = "primary" | "secondary" | "delete";
 type BoldValue = "base" | "medium" | "bold";
 
-interface ButtonProps extends JSX.HTMLAttributes<HTMLDivElement> {
+interface ButtonProps extends JSX.HTMLAttributes<HTMLAnchorElement> {
   children: JSX.Element;
   type?: ButtonType;
   bold?: BoldValue;
 }
 
-const globalClasses = "cursor-pointer font-main text-light p-5 w-fit rounded-xl";
+const globalClasses = "cursor-pointer font-main text-light text-center align-center p-5 w-fit rounded-xl";
 
 const buttonClasses: Record<ButtonType, string> = {
   primary: "bg-primary-light hover:bg-primary-dark",
@@ -36,8 +36,8 @@ export default function Button(props: ButtonProps) {
   const [local, rest] = splitProps(props, ["type", "bold"]);
 
   return (
-    <div {...rest} class={clsx([globalClasses, getButtonClasses(local.type), getBoldClasses(local.bold)])}>
+    <a {...rest} class={clsx([globalClasses, getButtonClasses(local.type), getBoldClasses(local.bold)])}>
       {props.children}
-    </div>
+    </a>
   );
 }
