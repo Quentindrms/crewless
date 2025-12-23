@@ -1,19 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 @import "tailwindcss";
 
-@layer base {
-  h1 {
-    @apply mb-4 text-4xl font-bold tracking-tight text-gray-900;
-  }
-  ul {
-    @apply list-disc pl-6;
-  }
-  ol {
-    @apply list-decimal pl-6;
-  }
-  p {
-    @apply mb-2 mt-2;
-  }
-  a {
-    @apply text-blue-600 hover:text-pink-400 visited:text-blue-900;
-  }
+@theme{
+  --color-primary-light: oklch(62.3% 0.214 259.815);
+  --color-primary-dark: oklch(54.6% 0.245 262.881);
+  --color-secondary : oklch(75% 0.183 55.934);
+  --color-accent-light: oklch(60.6% 0.25 292.717);
+  --color-accent-dark: oklch(54.1% 0.281 293.009);
+  --color-title-light: oklch(96.7% 0.003 264.542);
+  --color-title-dark: oklch(27.8% 0.033 256.848);
+  --color-text-light: oklch(98.5% 0 0);
+  --color-text-dark: oklch(27.4% 0.006 286.033);
+  --color-background-light: oklch(98.4% 0.003 247.858);
+  --color-background-dark: oklch(20.8% 0.042 265.755); 
+
+  --font-title: "Archivo", sans-serif; 
+  --font-main: "Roboto Mono", sans-serif
 }
