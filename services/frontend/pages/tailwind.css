@@ -23,6 +23,8 @@
 
   /** Espaces **/ 
    --spacing-extrasmall: 10rem;
+   --spacing-small: 13.5rem;
+   --spacing-medium: 20rem;
 
    /** Tailles de texte **/
   --text-extralarge: 5rem;
