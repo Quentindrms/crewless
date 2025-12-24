@@ -21,7 +21,7 @@ export default function Projet(props: ProjetProps) {
         <div class={clsx([defaultClasses, desktopClasses])} id="projet">
             <div>
                 <Heading component="h3" level={3} bold="bold">{props.name}</Heading>
-                <Paragraph boldValue="normal" class="w-fit max-h-35 text-justify p-5 overflow-scroll">{props.description}</Paragraph>
+                <Paragraph boldValue="normal" class="w-fit max-h-35 text-justify pt-2 overflow-scroll">{props.description}</Paragraph>
             </div>
             <div class="flex justify-between p-2 items-center">
                 <div>
