@@ -15,12 +15,12 @@ interface HeadingProps extends JSX.HTMLAttributes<HTMLHeadingElement>{
 const globalClasses = "font-title text-light"
 
 const levelClasses: Record<HeadingLevel, string> = {
-    1: 'text-6xl',
-    2: 'text-5xl',
-    3: 'text-4xl',
-    4: 'text-3xl',
-    5: 'text-2xl',
-    6: 'text-xl',
+    1: 'text-5xl md:text-6xl',
+    2: 'text-4xl md:text-5xl',
+    3: 'text-3xl md:text-4xl',
+    4: 'text-2xl md:text-3xl',
+    5: 'text-xl: mdtext-2xl',
+    6: 'text-lg: mdtext-xl',
 }
 
 const boldClasses: Record<BoldValue, string>={
@@ -44,7 +44,7 @@ export default function Heading(props: HeadingProps){
     const component = local.component || `h${local.level ?? 1}`
 
     return(
-        <Dynamic {...rest} component={component} class={clsx([getLevelClasses(local.level), getBoldClasses(local.bold), globalClasses])}>{props.children}</Dynamic>
+        <Dynamic {...rest} component={component} class={clsx([getLevelClasses(local.level), getBoldClasses(local.bold), globalClasses, rest.class])}>{props.children}</Dynamic>
     )
 
 }
