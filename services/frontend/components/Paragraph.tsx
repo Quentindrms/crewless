@@ -44,6 +44,6 @@ export default function Paragraph(props:ParagraphProps){
     const component = local.component ?? "p";
 
     return(
-        <Dynamic {...rest} component={component} class={clsx([getBoldClasses(local.boldValue), getFontSizeClasses(local.fontSize), globalClasses])}>{props.children}</Dynamic>
+        <Dynamic {...rest} component={component} class={clsx([getBoldClasses(local.boldValue), getFontSizeClasses(local.fontSize), globalClasses], rest.class)}>{props.children}</Dynamic>
     )
 }
