@@ -35,8 +35,8 @@ export default function Header() {
                     </For>
                 </div>
             </div>
-            <div>
-                <div class="lg:hidden flex justify-between items-center p-3 ">
+            <div class="lg:hidden">
+                <div class="flex justify-between items-center p-3 ">
                     <Heading level={1} component="h1">Crewless</Heading>
                     <BurgerIcon />
                 </div>
