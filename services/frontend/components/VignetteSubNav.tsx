@@ -10,5 +10,5 @@ const globalClasses =
   "cursor-pointer p-3 w-25 lg:w-35 h-fit text-center font-medium text-md text-light bg-primary-light rounded-xl hover:bg-primary-dark";
 
 export default function VignetteSubNav(props: VignetteSubNavProps) {
-  return <a class={clsx([globalClasses])}>{props.children}</a>;
+  return <a class={clsx([globalClasses, props.class])}>{props.children}</a>;
 }
