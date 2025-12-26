@@ -29,7 +29,7 @@ export default function FormInput(props: FormInputProps) {
       <input
         type={props.inputType ?? "text"}
         id={`-${props.name}-${props.id?.toString()}`}
-        placeholder="Test"
+        placeholder={props.placeholder}
         class="bg-background-light font-main text-dark w-2xs lg:w-xs"
       ></input>
     </div>
