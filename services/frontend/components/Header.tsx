@@ -1,4 +1,4 @@
-import { For } from "solid-js"
+import { createSignal, For, Show } from "solid-js"
 import NavigationLink from "./NavigationLink"
 import Heading from "./Heading"
 import BurgerIcon from "./icons/Burger"
@@ -20,6 +20,12 @@ const links: NavigationLink[] = [{
     target: "",
 }]
 
+const [isOpen, setIsOpen] = createSignal(false);
+
+function interractWithBurger() {
+    setIsOpen(!isOpen());
+    console.log(isOpen());
+}
 
 export default function Header() {
 
@@ -38,14 +44,16 @@ export default function Header() {
             <div class="lg:hidden">
                 <div class="flex justify-between items-center p-3 ">
                     <Heading level={1} component="h1">Crewless</Heading>
-                    <BurgerIcon />
+                    <BurgerIcon onClick={interractWithBurger} />
                 </div>
                 <div class="flex flex-col gap-2">
-                    <For each={links}>
-                        {(link) => (
-                            <MobileNavigationLink target={link.target}>{link.title}</MobileNavigationLink>
-                        )}
-                    </For>
+                    <Show when={isOpen()}>
+                        <For each={links}>
+                            {(link) => (
+                                <MobileNavigationLink target={link.target}>{link.title}</MobileNavigationLink>
+                            )}
+                        </For>
+                    </Show>
                 </div>
             </div>
         </>
