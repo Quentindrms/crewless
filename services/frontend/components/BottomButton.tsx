@@ -1,14 +1,13 @@
 import CreateIcon from "./icons/Create";
 
 interface BottomButtonProps {
-  onClick?: ()=>void,
+  onClick?: () => void;
 }
 
-export default function BottomButton(props:BottomButtonProps) {
-
-    return (
-        <>
-            <CreateIcon onClick={props.onClick} />
-        </>
-    )
+export default function BottomButton(props: BottomButtonProps) {
+  return (
+    <>
+      <CreateIcon onClick={props.onClick} />
+    </>
+  );
 }
