@@ -10,7 +10,8 @@ interface ButtonProps extends JSX.HTMLAttributes<HTMLAnchorElement> {
   bold?: BoldValue;
 }
 
-const globalClasses = "cursor-pointer font-main text-light text-center align-center p-5 w-fit rounded-xl";
+const globalClasses =
+  "cursor-pointer font-main text-light text-center align-center p-5 w-fit rounded-xl";
 
 const buttonClasses: Record<ButtonType, string> = {
   primary: "bg-primary-light hover:bg-primary-dark",
@@ -36,7 +37,14 @@ export default function Button(props: ButtonProps) {
   const [local, rest] = splitProps(props, ["type", "bold"]);
 
   return (
-    <a {...rest} class={clsx([globalClasses, getButtonClasses(local.type), getBoldClasses(local.bold)])}>
+    <a
+      {...rest}
+      class={clsx([
+        globalClasses,
+        getButtonClasses(local.type),
+        getBoldClasses(local.bold),
+      ])}
+    >
       {props.children}
     </a>
   );

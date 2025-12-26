@@ -1,18 +1,19 @@
-import clsx from "clsx"
-import type {JSX} from "solid-js"
+import clsx from "clsx";
+import type { JSX } from "solid-js";
 
 interface MobileNavigationLinkProps {
-    children: JSX.Element,
-    target: string,
+  children: JSX.Element;
+  target: string;
 }
 
-const globalClasses = "text-5xl text-center text-light font-title"
+const globalClasses = "text-5xl text-center text-light font-title";
 
-export default function MobileNavigationLink(props:MobileNavigationLinkProps) {
-
-    return (
-        <>
-        <a href={props.target} class={clsx([globalClasses])}>{props.children}</a>
-        </>
-    )
+export default function MobileNavigationLink(props: MobileNavigationLinkProps) {
+  return (
+    <>
+      <a href={props.target} class={clsx([globalClasses])}>
+        {props.children}
+      </a>
+    </>
+  );
 }

@@ -3,7 +3,7 @@ import type { JSX } from "solid-js";
 
 interface VignetteSubNavProps extends JSX.HTMLAttributes<HTMLAnchorElement> {
   children: JSX.Element;
-  target: string,
+  target: string;
 }
 
 const globalClasses =
