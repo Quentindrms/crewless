@@ -24,7 +24,6 @@ const [isOpen, setIsOpen] = createSignal(false);
 
 function interractWithBurger() {
     setIsOpen(!isOpen());
-    console.log(isOpen());
 }
 
 export default function Header() {
