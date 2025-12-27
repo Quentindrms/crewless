@@ -1,37 +1,41 @@
 import type { JSX } from "solid-js";
 
 type FormInputType =
-  | "text"
-  | "email"
-  | "phone"
-  | "password"
-  | "number"
-  | "date"
-  | "time";
+    | "text"
+    | "email"
+    | "phone"
+    | "password"
+    | "number"
+    | "date"
+    | "time";
 
 interface FormInputProps {
-  children: JSX.Element;
-  inputType?: FormInputType;
-  placeholder?: string;
-  id?: number;
-  name?: string;
+    children: JSX.Element;
+    inputType?: FormInputType;
+    placeholder?: string;
+    id?: number;
+    name?: string,
+    required?: boolean
+    onChange: (e: Event) => void,
 }
 
 export default function FormInput(props: FormInputProps) {
-  return (
-    <div class="flex flex-col">
-      <label
-        class="font-title text-light text-3xl"
-        for={`-${props.name}-${props.id?.toString()}`}
-      >
-        {props.children}
-      </label>
-      <input
-        type={props.inputType ?? "text"}
-        id={`-${props.name}-${props.id?.toString()}`}
-        placeholder={props.placeholder}
-        class="bg-background-light font-main text-dark w-2xs lg:w-xs"
-      ></input>
-    </div>
-  );
+    return (
+        <div class="flex flex-col">
+            <label
+                class="font-title text-light text-3xl"
+                for={`-${props.name}-${props.id?.toString()}`}
+            >
+                {props.children}
+            </label>
+            <input
+                type={props.inputType ?? "text"}
+                id={`-${props.name}-${props.id?.toString()}`}
+                placeholder={props.placeholder}
+                class="bg-background-light font-main text-dark w-2xs lg:w-xs"
+                required={props.required}
+                onChange={props.onChange}
+            ></input>
+        </div>
+    );
 }
