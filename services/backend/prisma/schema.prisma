@@ -25,3 +25,13 @@ model TaskCategories { 
   idTaskCategory Int @id @unique @map("id_task_category")
   name String @db.VarChar(100) @map("name")
 }
+
+model Projects {
+  idProject String @id @unique @default(uuid()) @map("id_project")
+  name String @db.VarChar(100) @map("name")
+  status String @db.VarChar(100) @map("status")
+  type String @db.VarChar(100) @map("type")
+  passed_time Int @map("passed_time")
+  description String @db.VarChar(1000)
+  is_deleted Boolean @map("is_deleted")
+}
