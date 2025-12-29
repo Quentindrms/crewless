@@ -20,3 +20,8 @@ model Categories { 
   idCategory Int @id @unique @map("id_category")
   name String @db.VarChar(100)
 }
+
+model TaskCategories { 
+  idTaskCategory Int @id @unique @map("id_task_category")
+  name String @db.VarChar(100) @map("name")
+}
