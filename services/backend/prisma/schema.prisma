@@ -22,7 +22,7 @@ model Categories { 
 }
 
 model TaskCategories { 
-  idTaskCategory Int @id @unique @map("id_task_category")
+  idTaskCategory Int @id @unique @default(autoincrement()) @map("id_task_category")
   name String @db.VarChar(100) @map("name")
 }
 
@@ -34,4 +34,8 @@ model Projects {
   passed_time Int @map("passed_time")
   description String @db.VarChar(1000)
   is_deleted Boolean @map("is_deleted")
+}
+
+model Links {
+  idLink Int @id @unique @default(autoincrement()) @map("id_links")
 }
