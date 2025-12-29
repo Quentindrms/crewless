@@ -11,6 +11,7 @@ model Users {
   idUser String @id @unique @default(uuid()) @map("id_user")
   lastName String @db.VarChar(100) @map("last_name")
   firstName String @db.VarChar(100) @map("first_name")
+  username String @db.VarChar(100) @map("username")
   mail String @db.VarChar(255) @map("mail")
   hashedPassword String @db.VarChar(250) @map("hashed_password")
   isDeleted Boolean @map("is_deleted")
