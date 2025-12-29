@@ -43,3 +43,12 @@ model Links {
   isDeleted Boolean @map("is_deleted")
 }
 
+model Tasks{
+  idTask Int @id @unique @default(autoincrement()) @map("id_task")
+  name String @db.VarChar(100) @map("name")
+  description String @db.VarChar(1000) @map("description")
+  estimedTime Int @map("estimed_time")
+  isRealised Boolean @default(false) @map("is_realised")
+  isDeleted Boolean @default(false) @map("is_deleted")
+  idLink String @db.VarChar(1000)
+}
