@@ -2,3 +2,20 @@ generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
 }
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Users {
+  idUser String @id @unique @default(uuid()) @map("id_user")
+  lastName String @db.VarChar(100) @map("last_name")
+  firstName String @db.VarChar(100) @map("first_name")
+  mail String @db.VarChar(255) @map("mail")
+  hashedPassword String @db.VarChar(250) @map("hashed_password")
+  isDeleted Boolean @map("is_deleted")
+}
+
+model Categories { 
+  idCategory Int @id @unique @map("id_category")
+}
