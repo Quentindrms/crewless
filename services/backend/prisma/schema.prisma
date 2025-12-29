@@ -23,6 +23,7 @@ model Categories { 
   name String @db.VarChar(100)
 
   projects Projects[]
+  tasks Tasks[]
 }
 
 model TaskCategories { 
@@ -57,6 +58,7 @@ model Links {
   projectId String @map("project_id")
   project Projects @relation(fields: [projectId], references: [idProject])
 
+  task Tasks[]
 }
 
 model Tasks{
@@ -67,6 +69,12 @@ model Tasks{
   isRealised Boolean @default(false) @map("is_realised")
   isDeleted Boolean @default(false) @map("is_deleted")
   idLink String @db.VarChar(1000)
+
+  linkId Int @map("link_id")
+  categoryId Int @map("category_id")
+
+  link Links @relation(fields: [linkId], references: [idLink])
+  category Categories @relation(fields: [categoryId], references: [idCategory])
 }
 
 model Notes{
