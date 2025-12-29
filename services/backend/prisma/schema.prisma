@@ -38,4 +38,8 @@ model Projects {
 
 model Links {
   idLink Int @id @unique @default(autoincrement()) @map("id_links")
+  name String @db.VarChar(100) @map("name")
+  url String @db.VarChar(500) @map("url")
+  isDeleted Boolean @map("is_deleted")
 }
+
