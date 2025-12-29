@@ -52,3 +52,11 @@ model Tasks{
   isDeleted Boolean @default(false) @map("is_deleted")
   idLink String @db.VarChar(1000)
 }
+
+model Notes{
+  idNotes Int @id @unique @default(autoincrement()) @map("id_note")
+  name String @db.VarChar(100) @map("name")
+  description String @db.VarChar(500) @map("description")
+  content String @db.VarChar(1000) @map("content")
+  isDeleted Boolean @map("is_deleted")  
+}
