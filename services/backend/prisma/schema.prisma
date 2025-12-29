@@ -14,11 +14,15 @@ model Users {
   mail String @db.VarChar(255) @map("mail")
   hashedPassword String @db.VarChar(250) @map("hashed_password")
   isDeleted Boolean @map("is_deleted")
+
+  projects Projects[]
 }
 
 model Categories { 
   idCategory Int @id @unique @map("id_category")
   name String @db.VarChar(100)
+
+  projects Projects[]
 }
 
 model TaskCategories { 
@@ -34,6 +38,12 @@ model Projects {
   passed_time Int @map("passed_time")
   description String @db.VarChar(1000)
   is_deleted Boolean @map("is_deleted")
+
+  userId String @map("user_id")
+  categoryId Int @map("category_id")
+
+  user Users @relation(fields: [userId], references: [idUser])
+  category Categories @relation(fields: [categoryId], references: [idCategory])
 }
 
 model Links {
@@ -60,3 +70,4 @@ model Notes{
   content String @db.VarChar(1000) @map("content")
   isDeleted Boolean @map("is_deleted")  
 }
+ 
