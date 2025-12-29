@@ -44,6 +44,8 @@ model Projects {
 
   user Users @relation(fields: [userId], references: [idUser])
   category Categories @relation(fields: [categoryId], references: [idCategory])
+
+  links Links[]
 }
 
 model Links {
@@ -51,6 +53,10 @@ model Links {
   name String @db.VarChar(100) @map("name")
   url String @db.VarChar(500) @map("url")
   isDeleted Boolean @map("is_deleted")
+
+  projectId String @map("project_id")
+  project Projects @relation(fields: [projectId], references: [idProject])
+
 }
 
 model Tasks{
