@@ -52,6 +52,11 @@ model Projects {
 
   links Links[]
   notes Notes[]
+
+  @@index([userId])
+  @@index([categoryId])
+  @@index([isDeleted])
+  @@index([status])
 }
 
 model Links {
@@ -66,6 +71,9 @@ model Links {
   project Projects @relation(fields: [projectId], references: [idProject])
 
   task Tasks[]
+
+  @@index([projectId])
+  @@index([isDeleted])
 }
 
 model Tasks{
@@ -75,9 +83,8 @@ model Tasks{
   estimedTime Int @map("estimed_time")
   isRealised Boolean @default(false) @map("is_realised")
   isDeleted Boolean @default(false) @map("is_deleted")
+  creatdAt DateTime @default(now()) @map("created_at")
   updateAt DateTime @updatedAt @map("update_at") 
-
-
 
   linkId Int @map("link_id")
   taskCategoryId Int @map("category_id")
@@ -86,6 +93,11 @@ model Tasks{
   category TaskCategories @relation(fields: [taskCategoryId], references: [idTaskCategory])
 
   notes Notes[]
+
+  @@index([linkId])
+  @@index([taskCategoryId])
+  @@index([isDeleted])
+  @@index([isRealised])
 }
 
 model Notes{
@@ -94,11 +106,17 @@ model Notes{
   description String @db.VarChar(500) @map("description")
   content String @db.VarChar(1000) @map("content")
   isDeleted Boolean @default(false) @map("is_deleted")  
+  createdAt DateTime @default(now()) @map("created_at")
+  updateAt DateTime @map("update_at")
 
   taskId Int? @map("task_id")
   projectId String @map("project_id")
 
   task Tasks? @relation(fields: [taskId], references: [idTask])
   project Projects @relation(fields: [projectId], references: [idProject])
+
+  @@index([taskId])
+  @@index([projectId])
+  @@index([isDeleted])
 }
  
