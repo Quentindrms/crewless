@@ -7,11 +7,11 @@ datasource db {
   provider = "postgresql"
 }
 
-model Users {
+model User {
   idUser String @id @unique @default(uuid()) @map("id_user")
   lastName String @db.VarChar(100) @map("last_name")
   firstName String @db.VarChar(100) @map("first_name")
-  username String @db.VarChar(100) @map("username")
+  username String @db.VarChar(100) @unique @map("username")
   mail String @db.VarChar(255) @map("mail")
   hashedPassword String @db.VarChar(250) @map("hashed_password")
   isDeleted Boolean @map("is_deleted")
@@ -19,7 +19,7 @@ model Users {
   projects Projects[]
 }
 
-model Categories { 
+model Category { 
   idCategory Int @id @unique @map("id_category")
   name String @db.VarChar(100)
 
@@ -40,12 +40,14 @@ model Projects {
   passed_time Int @map("passed_time")
   description String @db.VarChar(1000)
   is_deleted Boolean @map("is_deleted")
+  createdAt DateTime @default(now()) @map("created_at")
+  updateAt DateTime @map("update_at")
 
   userId String @map("user_id")
   categoryId Int @map("category_id")
 
-  user Users @relation(fields: [userId], references: [idUser])
-  category Categories @relation(fields: [categoryId], references: [idCategory])
+  user User @relation(fields: [userId], references: [idUser])
+  category Category @relation(fields: [categoryId], references: [idCategory])
 
   links Links[]
   notes Notes[]
@@ -70,13 +72,13 @@ model Tasks{
   estimedTime Int @map("estimed_time")
   isRealised Boolean @default(false) @map("is_realised")
   isDeleted Boolean @default(false) @map("is_deleted")
-  idLink String @db.VarChar(1000)
+
 
   linkId Int @map("link_id")
   categoryId Int @map("category_id")
 
   link Links @relation(fields: [linkId], references: [idLink])
-  category Categories @relation(fields: [categoryId], references: [idCategory])
+  category Category @relation(fields: [categoryId], references: [idCategory])
 
   notes Notes[]
 }
