@@ -3,6 +3,8 @@ import Heading from "../../../../components/Heading";
 import FormInput from "../../../../components/forms/FormInput";
 import { ProjectsType, STATUT_CONFIG } from "../../../../types/Projects";
 import FormSelect from "../../../../components/forms/FormSelect";
+import FormTextArea from "../../../../components/forms/FormTextArea";
+import FormSubmit from "../../../../components/forms/FormSubmit";
 
 export default function NewProject() {
 
@@ -32,9 +34,12 @@ export default function NewProject() {
     return (
         <div class="flex flex-col items-center">
             <Heading level={2} component="h2">Créer un nouveau projet</Heading>
-            <form class="" onSubmit={() => console.log('')}>
+            <form class="w-xl flex flex-col gap-2 items-center" onSubmit={() => console.log('')}>
                 <FormInput onChange={handleChange("name")}>Nom du projet</FormInput>
                 <FormSelect name="statut" options={statutOptions} onChange={handleChange('statut')}>Statut du projet</FormSelect>
+                <FormSelect name="category" options={[]} onChange={handleChange('category')}>Catégories</FormSelect>
+                <FormTextArea onChange={handleChange('description')} cols={100} rows={5}>Description</FormTextArea>
+                <FormSubmit value="Créer"></FormSubmit>
             </form>
         </div>
     )
