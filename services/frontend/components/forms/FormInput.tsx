@@ -23,7 +23,7 @@ export default function FormInput(props: FormInputProps) {
   return (
     <div class="flex flex-col">
       <label
-        class="font-title text-light text-3xl"
+        class="font-title text-light text-2xl"
         for={`-${props.name}-${props.id?.toString()}`}
       >
         {props.children}
