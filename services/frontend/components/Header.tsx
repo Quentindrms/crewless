@@ -11,16 +11,12 @@ type NavigationLink = {
 
 const links: NavigationLink[] = [
   {
-    title: "Lien 1",
-    target: "#",
+    title: "Connexion",
+    target: "/auth/sign-up",
   },
   {
-    title: "Lien2",
-    target: "#",
-  },
-  {
-    title: "Lien 3",
-    target: "",
+    title: "Inscription",
+    target: "/auth/sign-in",
   },
 ];
 
@@ -35,7 +31,7 @@ export default function Header() {
     <>
       <div class="hidden lg:flex lg:flex-row lg:items-center justify-between">
         <Heading level={1} component="h1">
-          Crewless
+          <a href="/" >Crewless</a>
         </Heading>
         <div class="flex gap-5">
           <For each={links}>
