@@ -1,4 +1,13 @@
-export type StatutType = "Idée" | "Planifié" | "En cours" | "En pause" | "Terminé" | "Abandonné";
+export const STATUT_CONFIG = {
+    idea:"Idée",
+    planned:"Planifié",
+    inProgress: "En cours",
+    onHold: "En pause",
+    completed: "Terminé",
+    cancelled: "Abandonné"
+} as const;
+
+export type StatutType = keyof typeof STATUT_CONFIG;
 
 export type ProjectsType = {
     name: string,
@@ -7,3 +16,4 @@ export type ProjectsType = {
     category: string,
     description: string,
 }
+
