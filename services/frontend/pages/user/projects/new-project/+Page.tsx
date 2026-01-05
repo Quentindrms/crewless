@@ -23,6 +23,7 @@ export default function NewProject() {
         console.log(formData())
     }
 
+    /** Récupère l'objet STATUT_CONFIG et créer un tableau sous forme de clef/valeur avec les informations contenues dans l'objet */
     const statutOptions = Object.entries(STATUT_CONFIG).map(([value, name]) => ({
         value,
         name,
