@@ -6,3 +6,8 @@ export type SigninFormType = {
     password: string,
     passwordConfirmation: string,
 }
+
+export type SignUpFormType = {
+    mail: string,
+    password: string,
+}
