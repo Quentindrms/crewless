@@ -5,7 +5,7 @@ import Header from "../../components/Header";
 import CreateIcon from "../../components/icons/Create";
 import BottomButton from "../../components/BottomButton";
 
-export default function Layout(props: { children?: JSX.Element }) {
+export default function LayoutUser(props: { children?: JSX.Element }) {
   return (
     <div>
       <Header />
