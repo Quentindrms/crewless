@@ -33,6 +33,7 @@ export default function Signup(){
             <form class="flex flex-col items-center gap-2" onSubmit={(e:Event) => handleSubmit(e)}>
                 <FormInput inputType="email" onChange={handleInputChange("mail")}>Adresse mail</FormInput>
                 <FormInput inputType="password" onChange={handleInputChange('password')}>Mot de passe</FormInput>
+                <a href="" class="text-light">Mot de passe oublié ?</a>
                 <FormSubmit value="Connexion"></FormSubmit>
             </form>
         </div>
