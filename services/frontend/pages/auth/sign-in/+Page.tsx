@@ -2,7 +2,7 @@ import "../../tailwind.css"
 import FormInput from "../../../components/forms/FormInput";
 import Heading from "../../../components/Heading";
 import FormSubmit from "../../../components/forms/FormSubmit";
-import { SigninFormType } from "../../../types/forms/SigninFormType";
+import { SigninFormType } from "../../../types/forms/AuthFormType";
 import { createSignal } from "solid-js";
 
 export default function Signin(){
