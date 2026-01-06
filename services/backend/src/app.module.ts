@@ -7,6 +7,7 @@ import { NotesModules } from './notes/notes.module';
 import { LinksModules } from './links/links.module';
 import { TasksModule } from './tasks/tasks.module';
 import { CategoriesController } from './categories/categories.controller';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [UsersModule,
@@ -14,7 +15,7 @@ import { CategoriesController } from './categories/categories.controller';
     NotesModules,
     LinksModules,
     TasksModule,
-    CategoriesController],
+    CategoriesModule],
   controllers: [AppController],
   providers: [AppService],
 })
