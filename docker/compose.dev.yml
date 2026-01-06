@@ -1,0 +1,26 @@
+services:
+  frontend:
+    container_name: crewless-frontend-development
+    build:
+      context: ../services/frontend
+      dockerfile: dev.dockerfile
+    ports:
+    - ${FRONTEND_PORT:-3000}:3000 #Browser
+    volumes:
+    - ../services/frontend:/app
+    - /app/node_modules
+    environment:
+    - NODE_ENV=developpement
+  
+  backend:
+    container_name: crewless-backend-devlopment
+    build:
+      context: ../services/backend
+      dockerfile: dev.dockerfile
+    ports:
+    - ${BACKEND_PORT:-4000}:4000
+    volumes:
+      - ../services/backend:/app
+      - /app/node_modules
+    environment:
+    - NODE_ENV=development
