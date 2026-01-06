@@ -1,14 +1,14 @@
 import type { JSX } from "solid-js";
 import "../tailwind.css";
 import SidebarNavigation from "../../components/navigation/SidebarNavigation";
-import Header from "../../components/Header";
 import CreateIcon from "../../components/icons/Create";
 import BottomButton from "../../components/BottomButton";
+import HeaderUser from "../../components/HeaderUser";
 
 export default function LayoutUser(props: { children?: JSX.Element }) {
   return (
     <div>
-      <Header />
+      <HeaderUser />
       <div class="flex flex-row">
         <Sidebar />
         <div class="flex flex-col grow bg-background-dark">
