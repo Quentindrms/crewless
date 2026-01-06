@@ -1,5 +1,5 @@
 
-export type Notes = {
+export type NotesType = {
     title: string,
     description: string,
 }
