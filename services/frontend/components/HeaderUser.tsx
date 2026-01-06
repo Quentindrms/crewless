@@ -1,6 +1,6 @@
 import { createSignal, For, Show } from "solid-js";
-import NavigationLink from "./NavigationLink";
 import Heading from "./Heading";
+import NavigationLink from "./NavigationLink";
 import BurgerIcon from "./icons/Burger";
 import MobileNavigationLink from "./navigation/MobileNavigationLink";
 
@@ -11,13 +11,17 @@ type NavigationLink = {
 
 const links: NavigationLink[] = [
   {
-    title: "Connexion",
-    target: "/auth/sign-up",
+    title: "Accueil",
+    target: "/user/",
   },
   {
-    title: "Inscription",
-    target: "/auth/sign-in",
+    title: "Catégories",
+    target: "/user/categories",
   },
+  {
+    title: "Déconnexion",
+    target: "/",
+  }
 ];
 
 const [isOpen, setIsOpen] = createSignal(false);
@@ -26,7 +30,7 @@ function interractWithBurger() {
   setIsOpen(!isOpen());
 }
 
-export default function Header() {
+export default function HeaderUser() {
   return (
     <>
       <div class="hidden lg:flex lg:flex-row lg:items-center justify-between">

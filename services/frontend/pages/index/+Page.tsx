@@ -1,3 +1,5 @@
+import "../tailwind.css"
+
 import Button from "../../components/Button";
 import Heading from "../../components/Heading";
 import NavigationLink from "../../components/NavigationLink";
