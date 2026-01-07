@@ -24,3 +24,18 @@ services:
       - /app/node_modules
     environment:
     - NODE_ENV=development
+
+  postgres:
+    image: postgres:18-alpine
+    container_name: crewless-database-development
+    volumes:
+      - ../../database/development:/var/lib/postgresql/18/docker
+    environment:
+      - POSTGRES_USER=${DB_USERNAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    networks:
+    - database
+networks:
+  database:
+    driver: bridge
