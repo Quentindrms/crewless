@@ -1,6 +1,7 @@
 generator client {
   provider = "prisma-client"
   output   = "../generated/prisma"
+  moduleFormat = "cjs"
 }
 
 datasource db {
@@ -17,6 +18,8 @@ model User {
   isDeleted Boolean @default(false) @map("is_deleted")
 
   projects Projects[]
+
+  @@map("user")
 }
 
 model Category { 
@@ -24,6 +27,8 @@ model Category { 
   name String @db.VarChar(100)
 
   projects Projects[]
+
+  @@map("category")
 }
 
 model TaskCategories { 
@@ -31,6 +36,8 @@ model TaskCategories { 
   name String @db.VarChar(100) @map("name")
 
   task Tasks[]
+
+  @@map("task_categories")
 }
 
 model Projects {
@@ -57,6 +64,8 @@ model Projects {
   @@index([categoryId])
   @@index([isDeleted])
   @@index([status])
+
+  @@map("projects")
 }
 
 model Links {
@@ -74,6 +83,8 @@ model Links {
 
   @@index([projectId])
   @@index([isDeleted])
+
+  @@map("links")
 }
 
 model Tasks{
@@ -98,6 +109,8 @@ model Tasks{
   @@index([taskCategoryId])
   @@index([isDeleted])
   @@index([isRealised])
+
+  @@map("tasks")
 }
 
 model Notes{
@@ -118,5 +131,7 @@ model Notes{
   @@index([taskId])
   @@index([projectId])
   @@index([isDeleted])
+
+  @@map("notes")
 }
  
