@@ -1,4 +1,4 @@
-import {Controller, Get, Post, Param, ParseIntPipe, Body} from "@nestjs/common";
+import {Controller, Get, Post, Delete, Param, ParseIntPipe, Body} from "@nestjs/common";
 import { CategoriesService } from "./categories.service";
 import { Category } from "generated/prisma/browser";
 
@@ -23,5 +23,10 @@ export class CategoriesController{
             return "null"
         }
         return this.categoriesService.addCategory(content.name);
+    }
+
+    @Delete('delete/:id')
+    async deleteCategorie(@Param('id', ParseIntPipe) id:number): Promise<Category|null>{
+        return this.categoriesService.deleteCategory(id);
     }
 }
