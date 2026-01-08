@@ -1,9 +1,10 @@
-import {Controller, Get, Post} from '@nestjs/common'
+import { Controller, Get, Post } from '@nestjs/common'
+import { ProjectsService } from './project.service'
 
 @Controller('projects')
 export class ProjectsController {
-    @Get()
-    findAll():string{
-        return 'projects'
-    }
+
+    constructor(private readonly projectsService: ProjectsService) {}
+
+
 }
