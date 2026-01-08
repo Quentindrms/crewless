@@ -26,6 +26,19 @@ async editUser(uuid:string):Promise<User|null>{
     return data;
 }
 
+async addUser(lastname: string, firstName: string, username: string, mail:string, password: string):Promise<User|null>{
+    const data = await prisma.user.create({
+        data:{
+            lastName: lastname,
+            firstName: firstName,
+            username: username,
+            mail: mail,
+            hashedPassword: password,
+        }
+    })
+    return data;
+}
+
 
 
 }
