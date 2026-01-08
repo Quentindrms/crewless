@@ -23,8 +23,15 @@ export class CategoriesService{
 
     }
 
-    async addCategory(){
-
+    async addCategory(categoryName:string){
+        const create = await prisma.category.create(
+            {
+                data : {
+                    idCategory: 3,
+                    name: categoryName,
+                }
+            }
+        )
     }
 
     async deleteCategory(id: number){
