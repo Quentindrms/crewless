@@ -5,7 +5,7 @@ import prisma from "src/database/Prisma";
 @Injectable()
 export class UsersService {
     
-async redUser(uuid: string):Promise<User|null>{
+async readUser(uuid: string):Promise<User|null>{
     const data = await prisma.user.findUnique({
         where:{
             idUser: uuid,
