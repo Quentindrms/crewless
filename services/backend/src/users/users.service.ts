@@ -48,6 +48,18 @@ export class UsersService {
         return null;
     }
 
+    async softDeleteUser(uuid:string): Promise<User|null>{
+        const data = await prisma.user.update({
+            where:{
+                idUser: uuid,
+            },
+            data:{
+                isDeleted: true,
+            }
+        })
+        return data;
+    }
+
 
 
 }
