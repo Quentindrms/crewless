@@ -6,7 +6,7 @@ import prisma from "src/database/Prisma";
 @Injectable()
 export class NotesService {
     
-    browseProjectNotes(userUuid: string, projectUuid: string): Promise<Notes[]|null>{
+    browseProjectNotes(projectUuid: string): Promise<Notes[]|null>{
         return prisma.notes.findMany({
             where:{
                 projectId: projectUuid,
@@ -22,12 +22,13 @@ export class NotesService {
         })
     }
 
-    editNote(noteUuid:string, noteContent:string): Promise<Notes|null>{
+    editNote(noteUuid:string, noteName:string, noteContent:string): Promise<Notes|null>{
         return prisma.notes.update({
             where:{
                 idNotes: noteUuid
             },
             data:{
+                name: noteName,
                 content: noteContent,
             }
         })
