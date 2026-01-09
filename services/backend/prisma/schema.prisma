@@ -23,7 +23,7 @@ model User {
 }
 
 model Category { 
-  idCategory Int @id @unique @map("id_category")
+  idCategory String @id @unique @map("id_category") @default(uuid())
   name String @db.VarChar(100)
 
   projects Projects[]
@@ -52,7 +52,7 @@ model Projects {
   updateAt DateTime @updatedAt @map("update_at")
 
   userId String @map("user_id")
-  categoryId Int @map("category_id")
+  categoryId String @map("category_id")
 
   user User @relation(fields: [userId], references: [idUser])
   category Category @relation(fields: [categoryId], references: [idCategory])
