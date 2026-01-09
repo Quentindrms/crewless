@@ -46,4 +46,13 @@ export class NotesService {
         })
     }
 
+    deleteNote(projectUuid: string, noteId: number){
+        return prisma.notes.delete({
+            where:{
+                idNotes: noteId,
+                projectId: projectUuid,
+            }
+        })
+    }
+
 }
