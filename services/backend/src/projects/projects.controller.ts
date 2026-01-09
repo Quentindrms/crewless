@@ -19,6 +19,6 @@ export class ProjectsController {
 
     @Post('create')
     createUserProject(@Body() body:{userUuid:string, name:string, projectStatus:string, projectType:string, passedTime:string, description:string, categoryId: string}):Promise<Projects|null>{
-        return this.projectsService.createUserProject(body.userUuid, body.name, body.projectStatus, body.projectType, parseInt(body.passedTime), body.description, parseInt(body.categoryId))
+        return this.projectsService.createUserProject(body.userUuid, body.name, body.projectStatus, body.projectType, parseInt(body.passedTime), body.description, body.categoryId)
     }
 }

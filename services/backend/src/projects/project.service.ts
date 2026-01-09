@@ -22,7 +22,7 @@ export class ProjectsService{
         })
     }
 
-    createUserProject(userUuid: string, name:string, projectStatus: string, projectType: string, passedTime: number, description: string, categoryId: number): Promise<Projects|null>{
+    createUserProject(userUuid: string, name:string, projectStatus: string, projectType: string, passedTime: number, description: string, categoryId: string): Promise<Projects|null>{
         return prisma.projects.create({
             data : {
                 userId: userUuid,

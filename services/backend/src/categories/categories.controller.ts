@@ -12,21 +12,21 @@ export class CategoriesController{
     }
 
     @Get('read/:id')
-    findOne(@Param('id', ParseIntPipe) id:number): Promise<Category|null>{
+    findOne(@Param('id', ParseIntPipe) id:string): Promise<Category|null>{
         return this.categoriesService.readCategory(id);
     }
 
     @Post('create')
-    async createCategorie(@Body() body:{name?:string}){
+    async createCategorie(@Body() body:{name?:string, userUuid:string}){
         const content = body;
         if(!content.name){
             return "null"
         }
-        return this.categoriesService.addCategory(content.name);
+        return this.categoriesService.addCategory(content.name, body.userUuid);
     }
 
     @Delete('delete/:id')
-    async deleteCategorie(@Param('id', ParseIntPipe) id:number): Promise<Category|null>{
+    async deleteCategorie(@Param('id', ParseIntPipe) id:string): Promise<Category|null>{
         return this.categoriesService.deleteCategory(id);
     }
 }

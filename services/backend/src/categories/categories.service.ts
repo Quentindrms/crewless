@@ -10,7 +10,7 @@ export class CategoriesService{
         return data;
     }
 
-    async readCategory(id:number):Promise<Category|null>{
+    async readCategory(id:string):Promise<Category|null>{
         const data = await prisma.category.findUnique({
             where: {
                 idCategory: id,
@@ -19,25 +19,25 @@ export class CategoriesService{
         return data;
     }
 
-    async editCategory(id: number){
+    async editCategory(id: string){
 
     }
 
-    async addCategory(categoryName:string){
-        const create = await prisma.category.create(
+    async addCategory(categoryName:string, userUuid:string):Promise<Category|null>{
+        return await prisma.category.create(
             {
                 data : {
-                    idCategory: 3,
+                    userId: userUuid,
                     name: categoryName,
                 }
             }
         )
     }
 
-    async deleteCategory(id: number):Promise<Category>{
+    async deleteCategory(categoryUuid: string):Promise<Category>{
         const deleteCategory = await prisma.category.delete({
             where: {
-                idCategory: id,
+                idCategory: categoryUuid,
             }
         }
         )
