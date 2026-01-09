@@ -18,6 +18,7 @@ model User {
   isDeleted Boolean @default(false) @map("is_deleted")
 
   projects Projects[]
+  categories Category[]
 
   @@map("user")
 }
@@ -26,7 +27,11 @@ model Category { 
   idCategory String @id @unique @map("id_category") @default(uuid())
   name String @db.VarChar(100)
 
+  userId String @map("user_id")
+
   projects Projects[]
+
+  user User @relation(fields: [userId], references: [idUser])
 
   @@map("category")
 }
