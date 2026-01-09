@@ -4,8 +4,8 @@ import { NotesService } from './notes.service'
 @Controller('notes')
 export class NotesController {
 
-    @Get()
-    findAll():string{
-        return 'notes'
+    @Get('/browse/:')
+    browseAllNotes(){
+
     }
 }

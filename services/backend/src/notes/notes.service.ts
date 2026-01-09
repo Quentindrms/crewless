@@ -14,18 +14,18 @@ export class NotesService {
         })
     }
 
-    readNote(noteId: number): Promise<Notes|null>{
+    readNote(noteUuid: string): Promise<Notes|null>{
         return prisma.notes.findFirst({
             where:{
-                idNotes: noteId,
+                idNotes: noteUuid,
             }
         })
     }
 
-    editNote(noteId:number, noteContent:string): Promise<Notes|null>{
+    editNote(noteUuid:string, noteContent:string): Promise<Notes|null>{
         return prisma.notes.update({
             where:{
-                idNotes: noteId
+                idNotes: noteUuid
             },
             data:{
                 content: noteContent,
@@ -36,7 +36,6 @@ export class NotesService {
     addNote(noteName:string, noteContent:string, projectUuid: string): Promise<Notes|null>{
         return prisma.notes.create({
             data:{
-                idNotes: 0,
                 name: noteName,
                 content: noteContent,
                 updateAt: Date.now().toString(),
@@ -46,10 +45,10 @@ export class NotesService {
         })
     }
 
-    deleteNote(projectUuid: string, noteId: number){
+    deleteNote(projectUuid: string, noteUuid: string){
         return prisma.notes.delete({
             where:{
-                idNotes: noteId,
+                idNotes: noteUuid,
                 projectId: projectUuid,
             }
         })
