@@ -47,10 +47,13 @@ export class NotesService {
     }
 
     deleteNote(projectUuid: string, noteUuid: string){
-        return prisma.notes.delete({
+        return prisma.notes.update({
             where:{
                 idNotes: noteUuid,
                 projectId: projectUuid,
+            },
+            data:{
+                isDeleted: true,
             }
         })
     }
