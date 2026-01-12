@@ -1,4 +1,4 @@
-import {Body, Controller, Get, Param, Post} from '@nestjs/common'
+import {Body, Controller, Get, Param, Post, Delete} from '@nestjs/common'
 import { NotesService } from './notes.service'
 import { Notes } from 'generated/prisma/browser'
 
@@ -25,5 +25,10 @@ export class NotesController {
     @Post('create')
     addNote(@Body() body:{name:string, content:string, projectUuid:string}):Promise<Notes|null>{
         return this.notesServices.addNote(body.name, body.content, body.projectUuid)
+    }
+
+    @Delete('delete/:noteUuid/:projectUuid')
+    deleteNote(@Param('noteUuid') noteUuid:string, @Param('projectUuid') projectUuid:string):Promise<Notes|null>{
+        return this.notesServices.deleteNote(projectUuid, noteUuid);
     }
 }
