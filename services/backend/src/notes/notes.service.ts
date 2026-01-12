@@ -39,7 +39,7 @@ export class NotesService {
             data:{
                 name: noteName,
                 content: noteContent,
-                updateAt: Date.now().toString(),
+                updateAt: new Date(),
                 description: '',
                 projectId: projectUuid,
             }

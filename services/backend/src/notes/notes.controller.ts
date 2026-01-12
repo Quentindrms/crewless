@@ -18,7 +18,7 @@ export class NotesController {
     }
 
     @Post('update')
-    editNote(@Body() body:{noteUuid:string, name:string, content:string,}):Promise<Notes|null>{
+    editNote(@Body() body:{noteUuid:string, projectUUid:string, name:string, content:string}):Promise<Notes|null>{
         return this.notesServices.editNote(body.noteUuid, body.name, body.content);
     }
 
